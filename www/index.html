@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--Projektarbeit-->
+<!--Thema: Stellaris/Weltraum-->
+<!--Datum: 13.11.2020-->
+<!--Dario Abächerli-->
+
+<!--Ich weiss, dass man für FullPage eine lizenz bräuchte, aber da ich die Webseite nicht veröffentliche sehe ich kein Problem-->
+<!--Und ja, ich habe das meiste auf englisch dokumentiert-->
+
+<html>
+<head>
+    <!--Meta links-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space Infos</title>
+
+    <!--Bootstrap + Jquerry-->
+    <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    
+    <!--Fullpage (CSS + JS)-->
+    <link rel="stylesheet" href="css/fullpage.min.css">
+    <script type="text/javascript" src="js/fullpage.min.js"></script>
+
+    <!--Own Style + JS-->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-sm main-nav fixed-top" id="hiddenNav">
+        <!-- Logo -->
+        <a class="navbar-brand mr-auto" href="#homePage">
+            <img src="medien/bilder/Logo.png" alt="Logo" style="width:40px;">
+        </a>
+
+        <!-- Collapsiable Navbar -->
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon navText">#</span>
+        </button>-->
+
+        <div>
+            <ul class="nav navbar-nav abs-center">
+                <li data-menuanchor="secondPage" class="nav-item active">
+                    <a class="nav-link navText smallScreen" href="#systemPage">StarSystems</a>
+                </li>
+                <li data-menuanchor="3rePage" class="nav-item">
+                    <a class="nav-link navText smallScreen" href="#planetPage">Planets</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav userNav">
+                <a class="nav-link dropdown-toggle navText" id="navbardrop" data-toggle="dropdown">User</a>
+                <div class="dropdown-menu allignRight">
+                    <button onclick="navLogin()" id="btnLogin" alt="Login">Login</button><br>
+                    <button onclick="" alt="Account" id="btnAccount" alt="Account" disabled>Account</button><br>
+                    <button onclick="LogOut()" alt="Logout" id="btnLogout" alt="Logout" disabled>Logout</button>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Div Login-->
+    <div id="divLogin" class="modal">
+        <!-- Modal Content -->
+        <form class="modal-content">
+            <div class="container">
+                <h2>Login window</h2>
+                <img class="avatar smallScreen" src="medien/bilder/Avatar.jpg" alt="Avatar Image">
+                <br><br>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+                <br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pwd" required>
+                <br>
+                <button type="submit" onclick="LogIn(this.form), document.getElementById('divLogin').style.display='none'">Login</button>
+                <button type="button" onclick="cancelLogin()" class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div> 
+
+     <!--Div "Fullpage"-->
+    <div id="fullpage">
+        <!--Sektion 1-->
+        <div class="section " id="section0"> 
+            <img class="screenSize" src="medien/bilder/Space/wallpaper_Space.jpg" alt="A PLanet far far away; Background">
+            <div class="textbox textWelcome" id="showTextId">
+                <br>
+                <div class="userWelcome" id="userWelcome">Welcome</div>
+            </div>
+            <div class="bottomScreenText" id="">
+                <h4>Solar System and Planets</h4>
+                <p>This Webpage lists some nearby solar systems. In addition, it lists some potentially Habitable Planets for our Future</p>
+            </div>
+        </div> 
+        <!--Section 2 Star Systems-->   
+        <div class="section" id="section1">
+            <!--Info Stars-->
+            <div class="slide" id="slide1">
+                <img class="screenSize" src="medien/bilder/Space/planetarySystem.jpg" alt="Planetary System">
+                <div class="bottomScreenText " id="">
+                    <h4>Star Systems</h4>
+                    <p>In the slides to your right you may find more close by star systems</p>
+                </div>
+            </div>
+            <!--Alpha Zentauri-->
+            <div class="slide" id="slide2">
+                <img class="screenSize" src="medien/bilder/Space/proxima_centauri.jpg" alt="Solar System Alpha Centauri">
+                <div class="bottomScreenText moreText" id="moreStar01" style="left: 100vw;" hidden>
+                    <h4>Alpha Centauri - More</h4>
+                    <p>Alpha Centauri A and B are Sun-like stars (Class G and K), and together they form the binary star Alpha Centauri AB. To the naked eye,
+                         the two main components appear to be a single star with an apparent magnitude of −0.27, the brightest star in the southern constellation of
+                          Centaurus and the third-brightest in the night sky, outshone only by Sirius and Canopus. </p>
+                    <p class="smallScreen"> Alpha Centauri A has 1.1 times the mass and 1.519 times the luminosity of the Sun, while Alpha Centauri B is smaller
+                         and cooler, at 0.907 times the Sun's mass and 0.445 times its luminosity. The pair orbit around a common centre with an orbital period of 79.91 years.
+                         Their elliptical orbit is eccentric, so that the distance between A and B varies from 35.6 AU (astronomical units), or about the distance between Pluto
+                          and the Sun, to 11.2 AU, or about the distance between Saturn and the Sun.
+                          Alpha Centauri C, or Proxima Centauri, is a small and faint red dwarf (Class M).
+                           Though not visible to the naked eye, Proxima Centauri is the closest star to the Sun at a distance of 4.24 light-years (1.30 pc),
+                            slightly closer than Alpha Centauri AB. Currently, the distance between Proxima Centauri and Alpha Centauri AB is about 13,000 astronomical
+                             units (0.21 ly), equivalent to about 430 times the radius of Neptune's orbit. </p>
+                    <button class="topRightButton" type="button" onclick="showMoreStar01()">show less</button>
+                </div>
+                <div class="bottomScreenText" id="lessStar01" style="left: 100vw;">
+                    <h4>Alpha Centauri</h4>
+                    <p>Alpha Centauri (Latinized from α Centauri, abbreviated Alpha Cen or α Cen) is the closest star system and closest planetary system to Earth's
+                         Solar System at 4.37 light-years (1.34 parsecs) from the Sun. It is a triple star system, consisting of three stars: α Centauri A
+                          (officially Rigil Kentaurus), α Centauri B (officially Toliman), and α Centauri C (officially Proxima Centauri).</p>
+                    <button class="topRightButton" type="button" onclick="showMoreStar01()">show more</button>
+                </div>
+            </div>
+            <!--Sirius-->
+            <div class="slide" id="slide3">
+                <img class="screenSize" src="medien/bilder/Space/sirius.jpg" alt="Solar System Sirius">
+                <div class="bottomScreenText moreText" id="moreStar02" style="left: 200vw;" hidden>
+                    <h4>More about Sirius</h4>
+                    <p>Sirius appears bright because of its intrinsic luminosity and its proximity to the Solar System. At a distance of 2.64 parsecs (8.6 ly),
+                         the Sirius system is one of Earth's nearest neighbours. Sirius is gradually moving closer to the Solar System, so it will slightly
+                          increase in brightness over the next 60,000 years. After that time, its distance will begin to increase, and it will become fainter,
+                           but it will continue to be the brightest star in the Earth's night sky for the next 210,000 years.</p>
+                    <p class="smallScreen">Sirius A is about twice as massive as the Sun (M☉) and has an absolute visual magnitude of +1.42.
+                         It is 25 times more luminous than the Sun, but has a significantly lower luminosity than other bright stars such as Canopus or Rigel.
+                          The system is between 200 and 300 million years old. It was originally composed of two bright bluish stars. The more massive of these,
+                           Sirius B, consumed its resources and became a red giant before shedding its outer layers and collapsing into its current state as a white
+                            dwarf around 120 million years ago.</p>
+                    <button class="topRightButton" type="button" onclick="showMoreStar02()">show less</button>
+                </div>
+                <div class="bottomScreenText" id="lessStar02" style="left: 200vw;">
+                    <h4>Sirius</h4>
+                    <p>Sirius (/ˈsɪriəs/, designated α Canis Majoris (Latinized to Alpha Canis Majoris, abbreviated Alpha CMa, α CMa))
+                         is the brightest star in the night sky. Its name is derived from the Greek word Σείριος Seirios "glowing" or "scorching".
+                          With a visual apparent magnitude of −1.46, Sirius is almost twice as bright as Canopus, the next brightest star.</p> 
+                    <p class="smallScreen">Sirius is a binary star consisting of a main-sequence star of spectral type A0 or A1, termed Sirius A, and a faint white
+                         dwarf companion of spectral type DA2, termed Sirius B. The distance between the two varies between 8.2 and 31.5 astronomical
+                          units as they orbit every 50 years.</p>
+                    <button class="topRightButton" type="button" onclick="showMoreStar02()">show more</button>
+                </div>
+            </div>
+        </div>
+        <!--Sektion 3 Planets-->
+        <div class="section" id="section2">
+            <!--Info Planets-->
+            <div class="slide" id="slide1">
+                <img class="screenSize" src="medien/bilder/Space/planetImg.jpg" alt="Random Planet Image">
+                <div class="bottomScreenText">
+                    <h4>Planets</h4>
+                    <p>Here you may learn more of "nearby" Habitable planets</p>
+                </div>
+            </div>
+            <!--Keplar 186f slide-->
+            <div class="slide" id="slide2">
+                <img class="screenSize" src="medien/bilder/Space/kepler_image.jpg" alt="Kepler-186f">
+                <div class="bottomScreenText moreText" id="moreSpace01" style="left: 100vw;" hidden>
+                    <h4>More of Kepler-186f</h4>
+                    <p>The only physical property directly derivable to that of the central star, which follows from the amount of occultation of stellar light during a transit.
+                         This ratio was measured to be 0.021, giving a planetary radius of 1.11±0.14 times that of Earth. The planet is about 11% larger in radius than
+                          Earth (between 4.5% smaller and 26.5% larger), giving a volume about 1.37 times that of Earth (between 0.87 and 2.03 times as large).</p>
+                    <p class="smallScreen">A very wide range of possible masses can be calculated by combining the radius with densities derived from the possible
+                         types of matter from which planets can be made. For example, it could be a rocky terrestrial planet or a lower density ocean planet with a thick atmosphere.
+                          A massive hydrogen/helium (H/He) atmosphere is thought to be unlikely in a planet with a radius below 1.5 R⊕. Planets with a radius of more than
+                           1.5 times that of Earth tend to accumulate the thick atmospheres which make them less likely to be habitable. Red dwarfs
+                            emit a much stronger extreme ultraviolet (XUV) flux when young than later in life. The planet's primordial atmosphere would have
+                             been subjected to elevated photoevaporation during that period, which would probably have largely removed any H/He-rich envelope 
+                             through hydrodynamic mass loss.</p>
+                    <button class="topRightButton" type="button" onclick="showMoreSpace01()">show less</button>
+                </div>
+                <div class="bottomScreenText" id="lessSpace01" style="left: 100vw;">
+                    <h4>Kepler-186f</h4>
+                    <p>Kepler-186f (also known by its Kepler object of interest designation KOI-571.05) is an exoplanet orbiting the red dwarf Kepler-186,
+                         about 500 light-years (178.5 parsecs, or nearly 5.0×1015 km) from the Earth. It is the first planet with a radius similar to Earth's to
+                          be discovered in the habitable zone of another star.</p>
+                    <p class="smallScreen">NASA's Kepler space telescope detected it using the transit method, along with
+                           four additional planets orbiting much closer to the star (all modestly larger than Earth).</p>
+                    <button class="topRightButton" type="button" onclick="showMoreSpace01()">show more</button>
+                </div>
+            </div>
+            <!--Proxima Centauri b slide-->
+            <div class="slide" id="slide3">
+                <img class="screenSize" src="medien/bilder/Space/proxima_centauri_b.jpg" alt="Proxima centauri b">
+                <div class="bottomScreenText moreText" id="moreSpace02" style="margin-left: 200vw;" hidden>
+                    <h4>Proxima centauri b - More</h4>
+                    <p>Proxima Centauri b orbits the star at a distance of roughly 0.05 AU (7,500,000 km; 4,600,000 mi) with an orbital period of approximately
+                         11.2 Earth days, and has an estimated mass of at least 1.2 times that of Earth. It is subject to stellar wind pressures of more than 2,000
+                          times those of Earth from the solar wind, and its habitability has not yet been definitively established.</p>
+                    <p class="smallScreen">The planet's discovery was announced in August 2016. It was found using the radial velocity method, where periodic Doppler
+                         shifts of the parent star's spectral lines suggest an orbiting object. From these readings, the parent star's radial velocity relative to the Earth
+                          is varying with an amplitude of about 1.4 metres (4.5 feet) per second.[2] According to Guillem Anglada‐Escudé, the planet's proximity to Earth offers
+                           an opportunity for robotic exploration with the Starshot project or, at least, "in the coming centuries".
+                        Without its orbital inclination known, Proxima Centauri b exact mass is unknown. If its orbit is nearly edge-on, it would have a mass of 1.173±0.086 M⊕
+                         (Earth masses). Statistically, there is a roughly 90% chance that its mass is less than 2.77 M⊕.   
+                        In May 2019, a paper presenting recent Spitzer Space Telescope data concluded that Proxima Centauri b did not transit its sun relative to Earth,
+                         and attributed previous transit detections to correlated noise.</p>
+                    <button class="topRightButton" type="button" onclick="showMoreSpace02()">show less</button>
+                </div>
+                <div class="bottomScreenText" id="lessSpace02" style="margin-left: 200vw;">
+                    <h4>Proxima centauri b</h4>
+                    <p>Proxima Centauri b (also called Proxima b or Alpha Centauri Cb) is an exoplanet orbiting in the habitable zone of the red dwarf star Proxima Centauri,
+                         which is the closest star to the Sun and part of a triple star system. It is approximately 4.2 light-years (4.0×1013 km)
+                          from Earth in the constellation Centaurus, making it and Proxima c the closest known exoplanets to the Solar System. </p>
+                    <button class="topRightButton" type="button" onclick="showMoreSpace02()">show more</button>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="section fp-auto-height" id="section3">
+            <div style="text-align: center;">
+                <h4>Additional Infos</h4>
+                <p>The Logo is presentes by @Roger and he holds all rights</p>
+                <p>Text used is from Wikipedia and images are out of the Web</p>
+                <p>This webpage was made by Dario</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //Script Fullpage
+        var myFullpage = new fullpage('#fullpage', {
+            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#44505c'],
+            anchors: ['homePage', 'systemPage', 'planetPage', 'footerPage'],
+            menu: '#menu',
+            loopTop: false,
+            loopBottom: false
+        });
+
+        //Script Login
+        // Get the modal
+        var modal = document.getElementById('divLogin');
+
+        // Close on Klick
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById("hiddenNav").hidden = false;
+            }
+        }
+    </script>
+</body>
+</html>
